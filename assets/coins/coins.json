@@ -1,0 +1,14 @@
+[
+  {
+    "id": "classique",
+    "label": "Classique",
+    "type": "text"
+  },
+  {
+     "id": "lugia",
+     "label": "Pièce Lugia",
+     "type": "image",
+     "front": "assets/coins/lugia/pile.png",
+     "back": "assets/coins/lugia/face.png"
+   }
+]

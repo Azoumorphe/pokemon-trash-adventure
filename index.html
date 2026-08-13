@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>Pokémon Trash Adventure</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="splash" id="splash">
+  <img src="assets/splash/splash.png" alt="" id="splash-img">
+</div>
+
+<div class="app">
+
+  <main class="screen" id="screen">
+
+    <!-- ÉCRAN PILE OU FACE -->
+    <section class="view" id="view-coin" data-view="coin">
+      <div class="view-header">
+        <h1 class="view-title">Pile ou face</h1>
+        <button class="link-btn" id="btn-coin-skin">Choisir la pièce</button>
+      </div>
+
+      <div class="coin-stage">
+        <div class="coin" id="coin">
+          <div class="coin__face coin__face--front" id="coin-face-front">PILE</div>
+          <div class="coin__face coin__face--back" id="coin-face-back">FACE</div>
+        </div>
+      </div>
+
+      <div class="coin-readout" id="coin-readout">
+        <span class="coin-readout__label">Résultat</span>
+        <span class="coin-readout__value" id="coin-result">—</span>
+      </div>
+
+      <button class="btn btn--primary" id="btn-flip">Lancer la pièce</button>
+
+      <div class="coin-history" id="coin-history" aria-label="Historique des lancers"></div>
+    </section>
+
+    <!-- SÉLECTEUR DE VISUEL DE PIÈCE -->
+    <div class="sheet-overlay" id="coin-skin-overlay">
+      <div class="sheet">
+        <div class="sheet__handle"></div>
+        <h2 class="sheet__title">Visuel de la pièce</h2>
+        <div class="sheet__list" id="coin-skin-list"></div>
+        <button class="btn-back" id="btn-coin-skin-close">Fermer</button>
+      </div>
+    </div>
+
+    <!-- ÉCRAN DÉS -->
+    <section class="view" id="view-dice" data-view="dice">
+      <div class="view-header">
+        <h1 class="view-title">Dés</h1>
+        <button class="link-btn" id="btn-dice-type">Choisir le dé</button>
+      </div>
+
+      <div class="dice-stage">
+        <div class="die" id="die">
+          <span id="die-face">D6</span>
+        </div>
+      </div>
+
+      <div class="coin-readout" id="dice-readout">
+        <span class="coin-readout__label">Résultat</span>
+        <span class="coin-readout__value" id="dice-result">—</span>
+      </div>
+
+      <button class="btn btn--primary" id="btn-roll">Lancer le dé</button>
+
+      <div class="coin-history" id="dice-history" aria-label="Historique des lancers"></div>
+    </section>
+
+    <!-- SÉLECTEUR DE TYPE DE DÉ -->
+    <div class="sheet-overlay" id="dice-type-overlay">
+      <div class="sheet">
+        <div class="sheet__handle"></div>
+        <h2 class="sheet__title">Type de dé</h2>
+        <div class="sheet__list" id="dice-type-list"></div>
+        <button class="btn-back" id="btn-dice-type-close">Fermer</button>
+      </div>
+    </div>
+
+    <!-- ÉCRAN POKÉDEX -->
+    <section class="view" id="view-dex" data-view="dex">
+      <h1 class="view-title">Pokédex</h1>
+
+      <div class="search-bar">
+        <input type="search" id="dex-search" placeholder="Chercher un nom ou un n°…" autocomplete="off" inputmode="search">
+      </div>
+
+      <div class="dex-count" id="dex-count"></div>
+
+      <div class="dex-list" id="dex-list">
+        <div class="loader" id="dex-loader">Connexion au Pokédex…</div>
+      </div>
+    </section>
+
+    <!-- ÉCRAN DÉTAIL POKÉMON -->
+    <section class="view" id="view-detail" data-view="detail">
+      <button class="btn-back" id="btn-back">← Retour</button>
+      <div id="detail-content" class="detail-content">
+        <div class="loader">Chargement…</div>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="tabbar" id="tabbar">
+    <button class="tabbar__btn is-active" data-target="coin">
+      <span class="tabbar__icon">◎</span>
+      <span>Pièce</span>
+    </button>
+    <button class="tabbar__btn" data-target="dice">
+      <span class="tabbar__icon">⚅</span>
+      <span>Dés</span>
+    </button>
+    <button class="tabbar__btn" data-target="dex">
+      <span class="tabbar__icon tabbar__icon--img">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="">
+      </span>
+      <span>Pokédex</span>
+    </button>
+  </nav>
+
+</div>
+
+<script type="module" src="js/splash.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
